@@ -19,3 +19,7 @@ and do
 $ rosrun raspimouse_control controller_vel_publisher.py
 ```
 on another terminal.
+
+## reference
+
+This code is derived from .travis.yml of https://github.com/Tiryoh/raspimouse\_sim .
