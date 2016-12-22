@@ -11,11 +11,12 @@ cd ~/catkin_ws/src/
 git clone https://github.com/ryuichiueda/raspimouse_ros.git
 git clone https://github.com/Tiryoh/raspimouse_sim.git
 
-source /opt/ros/${ROS_VER}/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
 cd ~/catkin_ws
 catkin_make
+
+source ~/catkin_ws/devel/setup.bash
 
 ###HOW TO VERIFY###
 # roslaunch raspimouse_gazebo raspimouse_with_samplemaze.launch 
