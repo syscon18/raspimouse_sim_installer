@@ -29,4 +29,4 @@ on another terminal.
 
 ## reference
 
-This code is derived from .travis.yml of https://github.com/Tiryoh/raspimouse\_sim .
+This code is derived from .travis.yml of https://github.com/rt-net/raspimouse_sim .

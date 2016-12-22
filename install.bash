@@ -18,7 +18,7 @@ catkin_make
 
 roscd
 cd ../src
-[ -e "raspimouse_sim" ] || git clone https://github.com/Tiryoh/raspimouse_sim.git
+[ -e "raspimouse_sim" ] || git clone https://github.com/rt-net/raspimouse_sim.git
 cd ..
 source ~/catkin_ws/devel/setup.bash
 catkin_make
