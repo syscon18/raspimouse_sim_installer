@@ -1,6 +1,11 @@
 # raspimouse_sim_installer
 Installer for raspimouse_sim
 
+## supported version of ROS
+
+* Indigo
+* Kinetic
+
 ## how to use
 
 ```
