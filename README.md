@@ -8,6 +8,8 @@ Installer for raspimouse_sim
 
 ## how to use
 
+A catkin workspace should be prepared beforehand.
+
 ```
 $ chmod +x ./install.bash
 $ ./install.bash

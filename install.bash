@@ -7,13 +7,18 @@ ROS_VER=kinetic
 sudo apt-get install ros-${ROS_VER}-desktop-full
 sudo apt-get install ros-${ROS_VER}-gazebo-ros-control ros-${ROS_VER}-ros-controllers
 
-cd ~/catkin_ws/src/
-git clone https://github.com/ryuichiueda/raspimouse_ros.git
-git clone https://github.com/Tiryoh/raspimouse_sim.git
+source ~/catkin_ws/devel/setup.bash
+
+roscd
+cd ../src
+
+[ -e raspimouse_ros ] || git clone https://github.com/ryuichiueda/raspimouse_ros.git
+[ -e raspimouse_sim ] || git clone https://github.com/Tiryoh/raspimouse_sim.git
 
 source ~/catkin_ws/devel/setup.bash
 
-cd ~/catkin_ws
+roscd
+cd ..
 catkin_make
 
 source ~/catkin_ws/devel/setup.bash
