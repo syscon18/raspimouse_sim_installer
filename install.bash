@@ -4,8 +4,8 @@ UBUNTU_VER=$(lsb_release -sc)
 ROS_VER=kinetic
 [ "$UBUNTU_VER" = "trusty" ] && ROS_VER=indigo
 
-sudo apt-get install ros-${ROS_VER}-desktop-full
-sudo apt-get install ros-${ROS_VER}-gazebo-ros-control ros-${ROS_VER}-ros-controllers
+sudo apt-get install -y ros-${ROS_VER}-desktop-full
+sudo apt-get install -y ros-${ROS_VER}-gazebo-ros-control ros-${ROS_VER}-ros-controllers
 
 source ~/catkin_ws/devel/setup.bash || echo "catkin_ws is not working correctly" ; exit 1
 
