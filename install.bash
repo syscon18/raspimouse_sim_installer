@@ -7,7 +7,7 @@ ROS_VER=kinetic
 sudo apt-get install ros-${ROS_VER}-desktop-full
 sudo apt-get install ros-${ROS_VER}-gazebo-ros-control ros-${ROS_VER}-ros-controllers
 
-source ~/catkin_ws/devel/setup.bash
+source ~/catkin_ws/devel/setup.bash || echo "catkin_ws is not working correctly" ; exit 1
 
 roscd
 cd ../src
