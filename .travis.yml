@@ -1,19 +1,23 @@
-sudo : required
-dist : trusty
-cache : 
+os: linux
+sudo: required
+dist: trusty
+group: edge
+cache: 
   - apt
-branches : 
-  only : 
+branches: 
+  only: 
     - master
     - dev
 env:
   global:
     - HOME=/home/travis
-before_install :
+before_install:
   - sudo apt-get update -qq
-script :
+  - sudo apt-get upgrade -qq
+script:
+  - export PATH=/usr/bin:$PATH
   - bash -eux -c "$(curl -SsfL https://git.io/ros-kinetic-desktop)"
   - source ~/.bashrc
   - mkdir -p $HOME/catkin_ws/src && cd $HOME/catkin_ws && catkin_init_workspace src && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   - catkin_make  && source ~/.bashrc
-  - bash -eux -c "$(curl -SsfL https://git.io/raspimouse-sim-installer)"
+  - bash -exv -c "$(curl -SsfL https://git.io/raspimouse-sim-installer)"
