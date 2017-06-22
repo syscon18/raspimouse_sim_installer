@@ -4,20 +4,17 @@ dist: trusty
 group: edge
 cache: 
   - apt
-branches: 
-  only: 
-    - master
-    - dev
 env:
   global:
     - HOME=/home/travis
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get upgrade -qq
+  - rsync -av ./ ~/
 script:
   - export PATH=/usr/bin:$PATH
   - bash -eux -c "$(curl -SsfL https://git.io/ros-kinetic-desktop)"
   - source ~/.bashrc
   - mkdir -p $HOME/catkin_ws/src && cd $HOME/catkin_ws && catkin_init_workspace src && echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   - catkin_make  && source ~/.bashrc
-  - bash -exv -c "$(curl -SsfL https://git.io/raspimouse-sim-installer)"
+  - test `git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'` = "master" && bash -exv -c "$(curl -SsfL https://git.io/raspimouse-sim-installer)" || bash -exv -c "$(cat ~/install.bash)"

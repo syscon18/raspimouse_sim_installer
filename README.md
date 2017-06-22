@@ -1,4 +1,5 @@
 # raspimouse_sim_installer
+[![Build Status](https://travis-ci.org/ryuichiueda/raspimouse_sim_installer.svg?branch=master)](https://travis-ci.org/ryuichiueda/raspimouse_sim_installer)
 Installer for raspimouse_sim
 
 ## supported version of ROS
