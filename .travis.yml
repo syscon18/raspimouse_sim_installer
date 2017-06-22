@@ -4,10 +4,6 @@ dist: trusty
 group: edge
 cache: 
   - apt
-branches: 
-  only: 
-    - master
-    - dev
 env:
   global:
     - HOME=/home/travis
