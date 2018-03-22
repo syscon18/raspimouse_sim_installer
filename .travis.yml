@@ -1,15 +1,16 @@
 os: linux
 sudo: required
 dist: trusty
-group: edge
+group: stable
 cache: 
   - apt
 env:
   global:
     - HOME=/home/travis
-before_install:
+before_script:
   - sudo apt-get update -qq
-  - sudo apt-get upgrade -qq
+  - sudo apt-get remove -y postgresql*
+  - sudo apt-get upgrade -qq --allow-unauthenticated
   - rsync -av ./ ~/
 script:
   - export PATH=/usr/bin:$PATH
