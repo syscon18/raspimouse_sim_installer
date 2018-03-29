@@ -18,7 +18,7 @@ roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 roscd && cd ../src
 [ -e "raspimouse_sim" ] && { cd raspimouse_sim; git pull; git checkout ${ROS_VER}-devel; } ||  git clone -b ${ROS_VER}-devel https://github.com/rt-net/raspimouse_sim.git
 roscd && cd ..
-rosdep install -r --from-paths src --skip-keys raspimouse_ros --skip-keys raspimouse_gazebo --skip-keys raspimouse_control --skip-keys raspimouse_description
+rosdep install -y --from-paths src --skip-keys raspimouse_ros --skip-keys raspimouse_gazebo --skip-keys raspimouse_control --skip-keys raspimouse_description
 roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 
 source ~/catkin_ws/devel/setup.bash
