@@ -15,10 +15,15 @@ roscd && \
 [ -e "raspimouse_ros" ] && { cd raspimouse_ros; git pull; } || git clone https://github.com/ryuichiueda/raspimouse_ros.git
 roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 
+roscd && \
+	[[ -z $(pwd | grep opt) ]] && cd ../src || { echo "catkin_ws is not working correctly"; exit 1; }
+[ -e "raspimouse_ros_2" ] && { cd raspimouse_ros_2; git pull; } || git clone https://github.com/ryuichiueda/raspimouse_ros_2.git
+roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
+
 roscd && cd ../src
 [ -e "raspimouse_sim" ] && { cd raspimouse_sim; git pull; git checkout ${ROS_VER}-devel; } ||  git clone -b ${ROS_VER}-devel https://github.com/rt-net/raspimouse_sim.git
 roscd && cd ..
-rosdep install -y --from-paths src --skip-keys raspimouse_ros --skip-keys raspimouse_gazebo --skip-keys raspimouse_control --skip-keys raspimouse_description
+rosdep install -r -y --from-paths src --skip-keys raspimouse_ros --skip-keys raspimouse_ros_2 --skip-keys raspimouse_gazebo --skip-keys raspimouse_control --skip-keys raspimouse_description
 roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 
 source ~/catkin_ws/devel/setup.bash
