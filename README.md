@@ -11,11 +11,19 @@ Installer for raspimouse_sim
 
 ## how to use
 
-A catkin workspace should be prepared beforehand.
+__A catkin workspace should be prepared beforehand.__
 
+Simply, just run
+```
+$ bash -exv -c "$(curl -sSfL https://git.io/raspimouse-sim-installer)"
+```
+on your terminal.
+
+Also, you can clone this repository and run
 ```
 $ ./install.bash
 ```
+on your terminal.
 
 ## how to check
 
