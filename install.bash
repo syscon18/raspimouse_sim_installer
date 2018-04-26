@@ -7,6 +7,7 @@ ROS_VER=kinetic
 [ "$UBUNTU_VER" = "trusty" ] && ROS_VER=indigo
 
 sudo apt-get install -y ros-${ROS_VER}-desktop-full
+sudo apt-get install -y mktemp
 
 source ~/catkin_ws/devel/setup.bash || { echo "catkin_ws is not working correctly"; exit 1; }
 
