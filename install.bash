@@ -24,14 +24,17 @@ roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 source ~/catkin_ws/devel/setup.bash
 
 mkdir -p ~/.gazebo/models && cd ~/.gazebo/models
-[ -e "ground_plane" ] || \
+if [ ! -e "ground_plane" ]; then
 	cd /tmp && \
+	TMPDIR=$(mktemp -d tmp.XXXXXXXXXX) && \
+	cd $TMPDIR && \
 	wget -l1 -np -nc -r "http://models.gazebosim.org/sun" --accept=gz && \
 	wget -l1 -np -nc -r "http://models.gazebosim.org/ground_plane" --accept=gz && \
 	wget -l1 -np -nc -r "http://models.gazebosim.org/gas_station" --accept=gz && \
 	cd "models.gazebosim.org" && \
 	for i in *; do tar -zvxf "$i/model.tar.gz"; done && \
 	cp -vfR * ~/.gazebo/models/
+fi
 
 ###HOW TO VERIFY###
 # roslaunch raspimouse_gazebo raspimouse_with_samplemaze.launch 
