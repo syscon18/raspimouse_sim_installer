@@ -8,6 +8,7 @@ Installer for raspimouse_sim
 
 * Indigo
 * Kinetic
+* Melodic
 
 ## how to use
 
