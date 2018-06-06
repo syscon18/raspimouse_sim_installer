@@ -5,6 +5,7 @@ set -e
 UBUNTU_VER=$(lsb_release -sc)
 ROS_VER=kinetic
 [ "$UBUNTU_VER" = "trusty" ] && ROS_VER=indigo
+[ "$UBUNTU_VER" = "bionic" ] && ROS_VER=melodic
 
 sudo apt-get install -y ros-${ROS_VER}-desktop-full
 sudo apt-get install -y mktemp
@@ -24,7 +25,7 @@ roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 roscd && cd ../src
 [ -e "raspimouse_sim" ] && { cd raspimouse_sim; git pull; git checkout ${ROS_VER}-devel; } ||  git clone -b ${ROS_VER}-devel https://github.com/rt-net/raspimouse_sim.git
 roscd && cd ..
-rosdep install -r -y --from-paths src --skip-keys raspimouse_ros --skip-keys raspimouse_ros_2 --skip-keys raspimouse_gazebo --skip-keys raspimouse_control --skip-keys raspimouse_description
+rosdep install -r -y --ignore-src --from-paths src
 roscd && cd .. && source ~/catkin_ws/devel/setup.bash && catkin_make
 
 source ~/catkin_ws/devel/setup.bash
