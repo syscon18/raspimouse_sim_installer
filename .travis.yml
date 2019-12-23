@@ -1,9 +1,13 @@
 os: linux
 sudo: required
-dist: trusty
 group: stable
 cache: 
   - apt
+matrix:
+  include:
+    - dist: trusty
+    - dist: xenial
+    - dist: bionic
 env:
   global:
     - HOME=/home/travis
