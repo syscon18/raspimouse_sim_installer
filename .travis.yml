@@ -6,8 +6,11 @@ cache:
 matrix:
   include:
     - dist: trusty
+      env: OS="trusty"
     - dist: xenial
+      env: OS="xenial"
     - dist: bionic
+      env: OS="bionic"
 env:
   global:
     - HOME=/home/travis
