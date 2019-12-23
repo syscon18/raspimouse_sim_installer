@@ -11,6 +11,8 @@ matrix:
       env: OS="xenial"
     - dist: bionic
       env: OS="bionic"
+  allow_failures:
+    - env: OS="trusty"
 env:
   global:
     - HOME=/home/travis
