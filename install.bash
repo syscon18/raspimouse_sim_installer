@@ -8,7 +8,7 @@ ROS_VER=kinetic
 [ "$UBUNTU_VER" = "bionic" ] && ROS_VER=melodic
 
 sudo apt-get install -y ros-${ROS_VER}-desktop-full
-[ which mktemp ] || sudo apt-get install -y mktemp
+[ "which mktemp" = "" ] && sudo apt-get install -y mktemp
 
 source ~/catkin_ws/devel/setup.bash || { echo "catkin_ws is not working correctly"; exit 1; }
 
