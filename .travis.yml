@@ -11,6 +11,8 @@ matrix:
       env: ROS="kinetic"
     - dist: bionic
       env: ROS="melodic"
+    - dist: focal
+      env: ROS="noetic"
   allow_failures:
     - env: ROS="indigo"
 env:
