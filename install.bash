@@ -6,7 +6,7 @@ UBUNTU_VER=$(lsb_release -sc)
 ROS_VER=kinetic
 [ "$UBUNTU_VER" = "trusty" ] && ROS_VER=indigo
 [ "$UBUNTU_VER" = "bionic" ] && ROS_VER=melodic
-
+[ "$UBUNTU_VER" = "focal" ] && ROS_VER=noetic
 sudo apt-get install -y ros-${ROS_VER}-desktop-full
 [ "which mktemp" = "" ] && sudo apt-get install -y mktemp
 
